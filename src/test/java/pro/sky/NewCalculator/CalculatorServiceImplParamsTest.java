@@ -32,14 +32,14 @@ public class CalculatorServiceImplParamsTest {
     public static Stream<Arguments> provideParamsForMultiplyTest() {
         return Stream.of(
                 Arguments.of(2, 4, "2 * 4 = 8"),
-                Arguments.of(-3, 0, "-3 * 0 = 8")
+                Arguments.of(-3, 0, "-3 * 0 = 0")
         );
     }
 
     public static Stream<Arguments> provideParamsForDivideTest() {
         return Stream.of(
-                Arguments.of(2, 4, "4 / 2 = 2"),
-                Arguments.of(-3, 0, "0 / 3 = 0")
+                Arguments.of(4, 2, "4 / 2 = 2"),
+                Arguments.of(0, 3, "0 / 3 = 0")
         );
     }
 
@@ -53,21 +53,21 @@ public class CalculatorServiceImplParamsTest {
     @ParameterizedTest
     @MethodSource("provideParamsForMinusTest")
     public void minus(int firstNumb, int secondNumb, String expectedResult) {
-        String result = out.plus(firstNumb, secondNumb);
+        String result = out.minus(firstNumb, secondNumb);
         Assertions.assertEquals(expectedResult, result);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForMultiplyTest")
     public void multiply(int firstNumb, int secondNumb, String expectedResult) {
-        String result = out.plus(firstNumb, secondNumb);
+        String result = out.multiply(firstNumb, secondNumb);
         Assertions.assertEquals(expectedResult, result);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForDivideTest")
     public void divide(int firstNumb, int secondNumb, String expectedResult) {
-        String result = out.plus(firstNumb, secondNumb);
+        String result = out.divide(firstNumb, secondNumb);
         Assertions.assertEquals(expectedResult, result);
     }
 
